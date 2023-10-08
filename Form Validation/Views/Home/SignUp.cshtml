@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_OuterLayout.cshtml";
+}
+
+
+<h2>SignUp</h2>
+<p class="text-danger">
+    @Html.ValidationSummary()
+</p>
+<form action="" method="post">
+    Name: <input type="text" name="Name" value="@(Model == null? "":Model.Name)" class="form-control" />
+    <span class="text-danger">@Html.ValidationMessage("Name")</span>
+    <br />
+
+    User ID <input type="text" name="UserID" value="@(Model == null? "":Model.UserID)" class="form-control" />
+    <span class="text-danger">@Html.ValidationMessage("USerID")</span>
+    <br />
+
+    Password <input type="password" name="Password" value="@(Model == null? "":Model.Password)" class="form-control" />
+    <span class="text-danger">@Html.ValidationMessage("Password")</span>
+    <br />
+
+    ID <input type="text" name="ID" value="@(Model == null? "":Model.ID)" class="form-control" />
+    <span class="text-danger">@Html.ValidationMessage("ID")</span>
+    <br />
+
+    Email <input type="email" name="Email" value="@(Model == null? "":Model.Email)" class="form-control" />
+    <span class="text-danger">@Html.ValidationMessage("Email")</span>
+    <br />
+    DOB <input type="date" name="dob" value="@(Model == null? "":Model.dob)" class="form-control" />
+    <span class="text-danger">@Html.ValidationMessage("dob")</span>
+    <br />
+
+    <input type="submit" value="Sign Up" class="btn btn-success" />
+</form>
