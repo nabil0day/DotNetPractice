@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ZeroHunger01.Models.Request>
+
+@{
+    ViewBag.Title = "ShowRequestList";
+}
+
+<h2>ShowRequestList</h2>
+@if (TempData["Message"] != null)
+{
+    <h3 style="color: red;">@TempData["Message"]</h3>
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<a href="/Home/RestaurantList">Restaurant List</a>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.rid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Foodname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderStatus)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.rid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Foodname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderStatus)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+                <a href="/Home/ShowEmployeeList/@item.Id">Employee Assign</a>
+            </td>
+        </tr>
+    }
+
+</table>
